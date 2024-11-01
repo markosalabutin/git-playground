@@ -44,7 +44,11 @@ while not is_game_over():
     if not guess_is_valid(guess):
         continue
 
-    if guess in full_list:
+    if guess in guesses:
+        print(f"Word {guess} has already been guessed!")
+        continue
+
+    if guess in full_list and guess not in guesses:
         guessed += 1
         guesses.append(guess)
         if guessed == WORDS_TO_WIN:
